@@ -78,56 +78,49 @@ GO
 -- DATOS
 -- ================================
 
+-- Solo 2 sedes: Laureles (1) y Envigado (2)
 SET IDENTITY_INSERT Sedes ON;
 INSERT INTO Sedes (id_sede, nombre, direccion, responsable, fecha_registro) VALUES
-(1, 'Sede Laureles', 'Calle 33 #76-40, Medellín',   'Carlos Gómez', '2023-02-10 08:00:00'),
-(2, 'Sede Envigado', 'Carrera 48 #32-10, Envigado',  'María Ríos',   '2023-03-15 09:30:00'),
-(3, 'Sede Itagüí',   'Calle 77 Sur #50-12, Itagüí',  'Luis Herrera', '2023-06-01 10:00:00');
+(1, 'Sede Laureles', 'Calle 33 #76-40, Medellín',  'Carlos Gómez', '2023-02-10 08:00:00'),
+(2, 'Sede Envigado', 'Carrera 48 #32-10, Envigado', 'María Ríos',   '2023-03-15 09:30:00');
 SET IDENTITY_INSERT Sedes OFF;
 GO
 
+-- Usuarios de Laureles y Envigado
 SET IDENTITY_INSERT Usuarios ON;
 INSERT INTO Usuarios (id_usuario, nombre, rol, id_sede, usuario_acceso, contrasena, fecha_registro) VALUES
-(1,  'Juan Maintegral',   'Dueño',                   1, 'dueno',  '1234', '2023-02-10 08:00:00'),
-(2,  'Carlos Gómez',      'Administrador',            1, 'admin1', '1234', '2023-02-10 08:05:00'),
-(3,  'María Ríos',        'Administrador',            2, 'admin2', '1234', '2023-03-15 09:35:00'),
-(4,  'Luis Herrera',      'Administrador',            3, 'admin3', '1234', '2023-06-01 10:10:00'),
-(5,  'Daniela Ospina',    'Jefe de Producción',       1, 'jprod1', '5678', '2023-04-01 08:00:00'),
-(6,  'Ricardo Salazar',   'Jefe de Producción',       2, 'jprod2', '5678', '2023-04-10 08:00:00'),
-(7,  'Valentina Muñoz',   'Jefe de Producción',       3, 'jprod3', '5678', '2023-07-01 08:00:00'),
-(8,  'Andrés Patiño',     'Encargado de Inventario',  1, 'inv1',   '5678', '2023-04-05 08:00:00'),
-(9,  'Paola Vélez',       'Encargado de Inventario',  2, 'inv2',   '5678', '2023-04-12 08:00:00'),
-(10, 'Camila Torres',     'Encargado de Inventario',  3, 'inv3',   '5678', '2023-07-05 08:00:00');
+(1, 'Juan Maintegral',  'Dueño',                   1, 'dueno',  '1234', '2023-02-10 08:00:00'),
+(2, 'Carlos Gómez',     'Administrador',            1, 'admin1', '1234', '2023-02-10 08:05:00'),
+(3, 'María Ríos',       'Administrador',            2, 'admin2', '1234', '2023-03-15 09:35:00'),
+(5, 'Daniela Ospina',   'Jefe de Producción',       1, 'jprod1', '5678', '2023-04-01 08:00:00'),
+(6, 'Ricardo Salazar',  'Jefe de Producción',       2, 'jprod2', '5678', '2023-04-10 08:00:00'),
+(8, 'Andrés Patiño',    'Encargado de Inventario',  1, 'inv1',   '5678', '2023-04-05 08:00:00'),
+(9, 'Paola Vélez',      'Encargado de Inventario',  2, 'inv2',   '5678', '2023-04-12 08:00:00');
 SET IDENTITY_INSERT Usuarios OFF;
 GO
 
+-- Insumos de Laureles (1-7) y Envigado (8-13);
 SET IDENTITY_INSERT Insumos ON;
 INSERT INTO Insumos (id_insumo, nombre, categoria, unidad_medida, cantidad, stock_minimo, alertas_stock, id_sede, id_usuario_responsable, fecha_actualizacion) VALUES
 -- Sede 1 · Laureles
 (1,  'Tela algodón blanca',   'tela',   'metros',    320, 100, 0, 1, 8, '2025-04-20 09:00:00'),
-(2,  'Tela denim azul',       'tela',   'metros',     85, 100, 2, 1, 8, '2025-04-25 10:30:00'), -- bajo mínimo
+(2,  'Tela denim azul',       'tela',   'metros',     85, 100, 2, 1, 8, '2025-04-25 10:30:00'),
 (3,  'Hilo poliéster blanco', 'hilo',   'kilos',      40,  15, 0, 1, 8, '2025-04-22 11:00:00'),
-(4,  'Hilo negro',            'hilo',   'kilos',      12,  15, 1, 1, 8, '2025-04-28 08:45:00'), -- bajo mínimo
+(4,  'Hilo negro',            'hilo',   'kilos',      12,  15, 1, 1, 8, '2025-04-28 08:45:00'),
 (5,  'Botón 4 huecos blanco', 'botón',  'unidades', 1800, 500, 0, 1, 8, '2025-04-15 14:00:00'),
 (6,  'Cierre metálico 20cm',  'cierre', 'unidades',  290, 100, 0, 1, 8, '2025-04-18 16:00:00'),
 (7,  'Entretela fusionable',  'otro',   'metros',     60,  30, 0, 1, 8, '2025-04-10 09:30:00'),
 -- Sede 2 · Envigado
 (8,  'Tela lino beige',       'tela',   'metros',    210,  80, 0, 2, 9, '2025-04-21 09:00:00'),
-(9,  'Tela seda champán',     'tela',   'metros',     55,  60, 1, 2, 9, '2025-04-26 11:00:00'), -- bajo mínimo
+(9,  'Tela seda champán',     'tela',   'metros',     55,  60, 1, 2, 9, '2025-04-26 11:00:00'),
 (10, 'Hilo seda crema',       'hilo',   'kilos',      18,  10, 0, 2, 9, '2025-04-20 10:00:00'),
 (11, 'Botón nácar redondo',   'botón',  'unidades',  750, 300, 0, 2, 9, '2025-04-17 13:00:00'),
 (12, 'Cierre invisible 25cm', 'cierre', 'unidades',  160,  80, 0, 2, 9, '2025-04-19 15:30:00'),
-(13, 'Elástico 2cm',          'otro',   'metros',    130,  50, 0, 2, 9, '2025-04-14 09:00:00'),
--- Sede 3 · Itagüí
-(14, 'Tela polar gris',        'tela',  'metros',    400, 120, 0, 3, 10, '2025-04-22 08:00:00'),
-(15, 'Tela franela a cuadros', 'tela',  'metros',    175,  80, 0, 3, 10, '2025-04-23 09:00:00'),
-(16, 'Hilo gris oscuro',       'hilo',  'kilos',      30,  20, 0, 3, 10, '2025-04-21 10:00:00'),
-(17, 'Botón metálico dorado',  'botón', 'unidades',  620, 200, 0, 3, 10, '2025-04-16 14:00:00'),
-(18, 'Cierre plástico 15cm',   'cierre','unidades',  410, 150, 0, 3, 10, '2025-04-20 16:00:00'),
-(19, 'Cinta reflectiva',       'otro',  'metros',     25,  30, 1, 3, 10, '2025-04-27 11:00:00'); -- bajo mínimo
+(13, 'Elástico 2cm',          'otro',   'metros',    130,  50, 0, 2, 9, '2025-04-14 09:00:00');
 SET IDENTITY_INSERT Insumos OFF;
 GO
 
+-- Movimientos de Laureles (1-16) y Envigado (17-27);
 SET IDENTITY_INSERT MovimientosInventario ON;
 INSERT INTO MovimientosInventario (id_movimiento, tipo, id_insumo, cantidad, fecha, id_usuario, motivo, id_sede) VALUES
 -- Sede 1
@@ -148,57 +141,39 @@ INSERT INTO MovimientosInventario (id_movimiento, tipo, id_insumo, cantidad, fec
 (15, 'Entrada', 1,   50, '2025-04-01 08:00:00', 2, 'Compra proveedor TextilAndes', 1),
 (16, 'Salida',  7,   20, '2025-04-18 12:00:00', 8, 'Pérdida por daño en bodega',   1),
 -- Sede 2
-(17, 'Entrada', 8,  250, '2025-01-12 09:00:00', 9, 'Registro inicial',              2),
-(18, 'Entrada', 9,  100, '2025-01-12 09:05:00', 9, 'Registro inicial',              2),
-(19, 'Entrada',10,   25, '2025-01-12 09:10:00', 9, 'Registro inicial',              2),
-(20, 'Entrada',11, 1000, '2025-01-12 09:15:00', 9, 'Registro inicial',              2),
-(21, 'Entrada',12,  200, '2025-01-12 09:20:00', 9, 'Registro inicial',              2),
-(22, 'Entrada',13,  150, '2025-01-12 09:25:00', 9, 'Registro inicial',              2),
-(23, 'Salida',  8,   40, '2025-02-18 10:00:00', 9, 'Uso en orden',                  2),
-(24, 'Salida',  9,   45, '2025-03-08 11:00:00', 9, 'Uso en orden',                  2),
-(25, 'Salida', 11,  250, '2025-03-20 14:00:00', 9, 'Uso en orden',                  2),
-(26, 'Entrada', 8,   30, '2025-04-05 08:00:00', 3, 'Compra proveedor Sedas del Valle', 2),
-(27, 'Salida', 13,   20, '2025-04-22 09:00:00', 9, 'Uso en orden',                  2),
--- Sede 3
-(28, 'Entrada',14,  500, '2025-01-20 08:30:00',10, 'Registro inicial',          3),
-(29, 'Entrada',15,  200, '2025-01-20 08:35:00',10, 'Registro inicial',          3),
-(30, 'Entrada',16,   40, '2025-01-20 08:40:00',10, 'Registro inicial',          3),
-(31, 'Entrada',17,  700, '2025-01-20 08:45:00',10, 'Registro inicial',          3),
-(32, 'Entrada',18,  500, '2025-01-20 08:50:00',10, 'Registro inicial',          3),
-(33, 'Entrada',19,   40, '2025-01-20 08:55:00',10, 'Registro inicial',          3),
-(34, 'Salida', 14,   60, '2025-02-25 10:00:00',10, 'Uso en orden',              3),
-(35, 'Salida', 16,    5, '2025-03-15 11:00:00',10, 'Uso en orden',              3),
-(36, 'Salida', 17,   80, '2025-03-22 14:00:00',10, 'Uso en orden',              3),
-(37, 'Salida', 18,   90, '2025-04-12 09:00:00',10, 'Uso en orden',              3),
-(38, 'Salida', 15,   25, '2025-04-20 10:00:00',10, 'Uso en orden',              3),
-(39, 'Salida', 19,   15, '2025-04-25 08:00:00',10, 'Uso en orden',              3),
-(40, 'Entrada',14,   60, '2025-04-08 09:00:00', 4, 'Compra proveedor PolyTex',  3);
+(17, 'Entrada', 8,  250, '2025-01-12 09:00:00', 9, 'Registro inicial',                  2),
+(18, 'Entrada', 9,  100, '2025-01-12 09:05:00', 9, 'Registro inicial',                  2),
+(19, 'Entrada',10,   25, '2025-01-12 09:10:00', 9, 'Registro inicial',                  2),
+(20, 'Entrada',11, 1000, '2025-01-12 09:15:00', 9, 'Registro inicial',                  2),
+(21, 'Entrada',12,  200, '2025-01-12 09:20:00', 9, 'Registro inicial',                  2),
+(22, 'Entrada',13,  150, '2025-01-12 09:25:00', 9, 'Registro inicial',                  2),
+(23, 'Salida',  8,   40, '2025-02-18 10:00:00', 9, 'Uso en orden',                      2),
+(24, 'Salida',  9,   45, '2025-03-08 11:00:00', 9, 'Uso en orden',                      2),
+(25, 'Salida', 11,  250, '2025-03-20 14:00:00', 9, 'Uso en orden',                      2),
+(26, 'Entrada', 8,   30, '2025-04-05 08:00:00', 3, 'Compra proveedor Sedas del Valle',  2),
+(27, 'Salida', 13,   20, '2025-04-22 09:00:00', 9, 'Uso en orden',                      2);
 SET IDENTITY_INSERT MovimientosInventario OFF;
 GO
 
+-- Órdenes de Laureles (1-5) y Envigado (6-10);
 SET IDENTITY_INSERT OrdenesProduccion ON;
 INSERT INTO OrdenesProduccion (id_orden, cliente, prenda, cantidad, fecha_creacion, fecha_entrega, prioridad, estado, id_sede, id_usuario_responsable, fecha_finalizacion) VALUES
 -- Sede 1
-(1,  'Marca Urbana S.A.',      'Camiseta algodón básica',      200, '2025-02-01 09:00:00', '2025-02-28', 'Normal',  'Terminada',  1, 5, '2025-02-26 17:00:00'),
-(2,  'Comercial Ropa Jeans',   'Jean clásico slim fit',         80, '2025-02-15 10:00:00', '2025-03-20', 'Normal',  'Terminada',  1, 5, '2025-03-18 16:30:00'),
-(3,  'Tienda Moda Centro',     'Blusa manga larga denim',      120, '2025-03-05 09:00:00', '2025-04-05', 'Urgente', 'Terminada',  1, 5, '2025-04-03 14:00:00'),
-(4,  'Exportaciones Textiles', 'Camiseta polo colores',        300, '2025-04-01 08:00:00', '2025-04-30', 'Normal',  'En proceso', 1, 5, NULL),
-(5,  'Boutique Élite',         'Vestido cóctel algodón',        40, '2025-04-20 11:00:00', '2025-05-10', 'Urgente', 'Pendiente',  1, 5, NULL),
+(1,  'Marca Urbana S.A.',      'Camiseta algodón básica',    200, '2025-02-01 09:00:00', '2025-02-28', 'Normal',  'Terminada',  1, 5, '2025-02-26 17:00:00'),
+(2,  'Comercial Ropa Jeans',   'Jean clásico slim fit',       80, '2025-02-15 10:00:00', '2025-03-20', 'Normal',  'Terminada',  1, 5, '2025-03-18 16:30:00'),
+(3,  'Tienda Moda Centro',     'Blusa manga larga denim',    120, '2025-03-05 09:00:00', '2025-04-05', 'Urgente', 'Terminada',  1, 5, '2025-04-03 14:00:00'),
+(4,  'Exportaciones Textiles', 'Camiseta polo colores',      300, '2025-04-01 08:00:00', '2025-04-30', 'Normal',  'En proceso', 1, 5, NULL),
+(5,  'Boutique Élite',         'Vestido cóctel algodón',      40, '2025-04-20 11:00:00', '2025-05-10', 'Urgente', 'Pendiente',  1, 5, NULL),
 -- Sede 2
-(6,  'Casa de Modas Lucía',    'Blusa seda manga corta',        60, '2025-02-10 09:00:00', '2025-03-10', 'Normal',  'Terminada',  2, 6, '2025-03-08 15:00:00'),
-(7,  'Diseños Valentina',      'Vestido lino playa',            35, '2025-03-01 10:00:00', '2025-03-30', 'Normal',  'Terminada',  2, 6, '2025-03-28 17:00:00'),
-(8,  'Novias del Valle',       'Traje de noche seda',           15, '2025-03-20 09:00:00', '2025-04-25', 'Urgente', 'En proceso', 2, 6, NULL),
-(9,  'Corporativo Textil SA',  'Camisa ejecutiva lino',        100, '2025-04-05 08:00:00', '2025-05-05', 'Normal',  'Pendiente',  2, 6, NULL),
-(10, 'Tienda Primavera',       'Vestido casual lino',           50, '2025-04-15 10:00:00', '2025-05-15', 'Normal',  'Pendiente',  2, 6, NULL),
--- Sede 3
-(11, 'Deportivos Norte Ltda.', 'Chaqueta polar deportiva',     150, '2025-02-05 08:00:00', '2025-03-05', 'Normal',  'Terminada',  3, 7, '2025-03-03 16:00:00'),
-(12, 'Uniformes Colombia',     'Camisa franela institucional', 200, '2025-03-10 09:00:00', '2025-04-10', 'Urgente', 'Terminada',  3, 7, '2025-04-08 14:00:00'),
-(13, 'WorkWear SAS',           'Overol franela seguridad',      75, '2025-04-01 08:00:00', '2025-04-30', 'Normal',  'En proceso', 3, 7, NULL),
-(14, 'Escuelas Medellín',      'Chaqueta escolar polar',       350, '2025-04-10 10:00:00', '2025-05-20', 'Urgente', 'En proceso', 3, 7, NULL),
-(15, 'Camping Total Ltda.',    'Chaleco reflectivo polar',      90, '2025-04-22 11:00:00', '2025-05-30', 'Normal',  'Pendiente',  3, 7, NULL);
+(6,  'Casa de Modas Lucía',    'Blusa seda manga corta',      60, '2025-02-10 09:00:00', '2025-03-10', 'Normal',  'Terminada',  2, 6, '2025-03-08 15:00:00'),
+(7,  'Diseños Valentina',      'Vestido lino playa',          35, '2025-03-01 10:00:00', '2025-03-30', 'Normal',  'Terminada',  2, 6, '2025-03-28 17:00:00'),
+(8,  'Novias del Valle',       'Traje de noche seda',         15, '2025-03-20 09:00:00', '2025-04-25', 'Urgente', 'En proceso', 2, 6, NULL),
+(9,  'Corporativo Textil SA',  'Camisa ejecutiva lino',      100, '2025-04-05 08:00:00', '2025-05-05', 'Normal',  'Pendiente',  2, 6, NULL),
+(10, 'Tienda Primavera',       'Vestido casual lino',         50, '2025-04-15 10:00:00', '2025-05-15', 'Normal',  'Pendiente',  2, 6, NULL);
 SET IDENTITY_INSERT OrdenesProduccion OFF;
 GO
 
+-- Consumos de órdenes
 SET IDENTITY_INSERT ConsumoInsumos ON;
 INSERT INTO ConsumoInsumos (id_consumo, id_orden, id_insumo, cantidad_consumida, id_usuario, fecha_consumo) VALUES
 (1,  1,  1,  30, 8, '2025-02-05 10:00:00'),
@@ -219,81 +194,13 @@ INSERT INTO ConsumoInsumos (id_consumo, id_orden, id_insumo, cantidad_consumida,
 (16, 7, 11, 100, 9, '2025-03-08 11:00:00'),
 (17, 7, 13,  10, 9, '2025-03-15 14:00:00'),
 (18, 8,  9,  25, 9, '2025-03-25 10:00:00'),
-(19, 8, 10,   5, 9, '2025-04-01 11:00:00'),
-(20,11, 14,  60,10, '2025-02-10 10:00:00'),
-(21,11, 16,   3,10, '2025-02-15 11:00:00'),
-(22,11, 18,  90,10, '2025-02-20 14:00:00'),
-(23,12, 15,  25,10, '2025-03-15 10:00:00'),
-(24,12, 17,  80,10, '2025-03-18 11:00:00'),
-(25,12, 18,  90,10, '2025-03-25 14:00:00'),
-(26,13, 15,  25,10, '2025-04-05 10:00:00'),
-(27,13, 16,   5,10, '2025-04-08 11:00:00'),
-(28,13, 19,  15,10, '2025-04-12 14:00:00');
+(19, 8, 10,   5, 9, '2025-04-01 11:00:00');
 SET IDENTITY_INSERT ConsumoInsumos OFF;
 GO
 
 -- ================================
 -- VISTAS
 -- ================================
-
--- Insumos por debajo del stock mínimo
-CREATE OR ALTER VIEW vw_AlertasStock AS
-SELECT
-    i.id_insumo, i.nombre, i.categoria, i.unidad_medida,
-    i.cantidad AS stock_actual, i.stock_minimo,
-    i.stock_minimo - i.cantidad AS faltantes,
-    s.nombre AS sede, i.alertas_stock
-FROM Insumos i
-JOIN Sedes s ON i.id_sede = s.id_sede
-WHERE i.cantidad < i.stock_minimo;
-GO
-
--- Órdenes no terminadas con fecha vencida
-CREATE OR ALTER VIEW vw_OrdenesRetrasadas AS
-SELECT
-    o.id_orden, o.cliente, o.prenda, o.cantidad,
-    o.fecha_entrega, o.estado, o.prioridad,
-    s.nombre AS sede, u.nombre AS responsable,
-    DATEDIFF(DAY, o.fecha_entrega, CAST(GETDATE() AS DATE)) AS dias_retraso
-FROM OrdenesProduccion o
-JOIN Sedes    s ON o.id_sede                = s.id_sede
-JOIN Usuarios u ON o.id_usuario_responsable = u.id_usuario
-WHERE o.estado <> 'Terminada'
-  AND o.fecha_entrega < CAST(GETDATE() AS DATE);
-GO
-
--- KPI: rotación y consumo promedio por insumo
-CREATE OR ALTER VIEW vw_KPI_ConsumoInsumos AS
-SELECT
-    i.nombre AS insumo, i.unidad_medida, s.nombre AS sede,
-    SUM(c.cantidad_consumida)                AS total_consumido,
-    COUNT(c.id_consumo)                      AS registros,
-    AVG(CAST(c.cantidad_consumida AS FLOAT)) AS promedio_consumo,
-    i.cantidad                               AS stock_actual
-FROM Insumos i
-JOIN Sedes s ON i.id_sede = s.id_sede
-LEFT JOIN ConsumoInsumos c ON c.id_insumo = i.id_insumo
-GROUP BY i.id_insumo, i.nombre, i.unidad_medida, s.nombre, i.cantidad;
-GO
-
--- KPI: tiempo promedio de producción por sede
-CREATE OR ALTER VIEW vw_KPI_TiempoProduccion AS
-SELECT
-    s.nombre AS sede,
-    COUNT(o.id_orden) AS ordenes_terminadas,
-    AVG(DATEDIFF(HOUR, o.fecha_creacion, o.fecha_finalizacion)) AS promedio_horas
-FROM OrdenesProduccion o
-JOIN Sedes s ON o.id_sede = s.id_sede
-WHERE o.estado = 'Terminada' AND o.fecha_finalizacion IS NOT NULL
-GROUP BY s.nombre;
-GO
-
-USE Maintegral;
-GO
-
--- ================================================
--- VISTAS
--- ================================================
 
 -- Inventario completo con nombre de sede y responsable
 CREATE OR ALTER VIEW vw_Inventario AS
@@ -400,10 +307,10 @@ GO
 CREATE OR ALTER VIEW vw_KPI_ConsumoInsumos AS
 SELECT
     i.nombre AS insumo, i.unidad_medida, s.nombre AS sede,
-    ISNULL(SUM(c.cantidad_consumida), 0)             AS total_consumido,
-    COUNT(c.id_consumo)                              AS num_registros,
+    ISNULL(SUM(c.cantidad_consumida), 0)                AS total_consumido,
+    COUNT(c.id_consumo)                                 AS num_registros,
     ISNULL(AVG(CAST(c.cantidad_consumida AS FLOAT)), 0) AS promedio_consumo,
-    i.cantidad                                       AS stock_actual
+    i.cantidad                                          AS stock_actual
 FROM Insumos i
 JOIN Sedes s ON i.id_sede = s.id_sede
 LEFT JOIN ConsumoInsumos c ON c.id_insumo = i.id_insumo
@@ -440,16 +347,16 @@ CREATE OR ALTER VIEW vw_KPI_MovimientosPorSede AS
 SELECT
     s.nombre AS sede,
     m.tipo,
-    COUNT(*)       AS num_movimientos,
+    COUNT(*)        AS num_movimientos,
     SUM(m.cantidad) AS unidades_totales
 FROM MovimientosInventario m
 JOIN Sedes s ON m.id_sede = s.id_sede
 GROUP BY s.nombre, m.tipo;
 GO
 
--- ================================================
+-- ================================
 -- CONSULTAS DE FILTRADO
--- ================================================
+-- ================================
 
 -- Todo el inventario con estado de stock
 SELECT * FROM vw_Inventario ORDER BY sede, nombre;
@@ -473,7 +380,7 @@ SELECT * FROM vw_OrdenesRetrasadas ORDER BY dias_retraso DESC;
 SELECT * FROM vw_Ordenes WHERE prioridad = 'Urgente' AND estado <> 'Terminada';
 
 -- Órdenes de una sede
-SELECT * FROM vw_Ordenes WHERE sede = 'Sede Itagüí' ORDER BY fecha_entrega;
+SELECT * FROM vw_Ordenes WHERE sede = 'Sede Envigado' ORDER BY fecha_entrega;
 
 -- Órdenes por estado
 SELECT * FROM vw_Ordenes WHERE estado = 'En proceso';
