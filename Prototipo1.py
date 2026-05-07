@@ -5,21 +5,17 @@ from datetime import datetime
 
 sedes = [
     {"id_sede": 1, "nombre": "Sede Laureles", "direccion": "Calle 33 #76-40, Medellín",   "responsable": "Carlos Gómez"},
-    {"id_sede": 2, "nombre": "Sede Envigado", "direccion": "Carrera 48 #32-10, Envigado", "responsable": "María Ríos"},
-    {"id_sede": 3, "nombre": "Sede Itagüí",   "direccion": "Calle 77 Sur #50-12, Itagüí", "responsable": "Luis Herrera"},
+    {"id_sede": 2, "nombre": "Sede Envigado", "direccion": "Carrera 48 #32-10, Envigado", "responsable": "María Ríos"}
 ]
 
 usuarios = [
     {"id_usuario": 1,  "nombre": "Juan Maintegral", "rol": "Dueño",                   "id_sede": 1, "usuario_acceso": "dueno",  "contrasena": "1234"},
     {"id_usuario": 2,  "nombre": "Carlos Gómez",    "rol": "Administrador",           "id_sede": 1, "usuario_acceso": "admin1", "contrasena": "1234"},
     {"id_usuario": 3,  "nombre": "María Ríos",      "rol": "Administrador",           "id_sede": 2, "usuario_acceso": "admin2", "contrasena": "1234"},
-    {"id_usuario": 4,  "nombre": "Luis Herrera",    "rol": "Administrador",           "id_sede": 3, "usuario_acceso": "admin3", "contrasena": "1234"},
-    {"id_usuario": 5,  "nombre": "Daniela Ospina",  "rol": "Jefe de Producción",      "id_sede": 1, "usuario_acceso": "jprod1", "contrasena": "5678"},
-    {"id_usuario": 6,  "nombre": "Ricardo Salazar", "rol": "Jefe de Producción",      "id_sede": 2, "usuario_acceso": "jprod2", "contrasena": "5678"},
-    {"id_usuario": 7,  "nombre": "Valentina Muñoz", "rol": "Jefe de Producción",      "id_sede": 3, "usuario_acceso": "jprod3", "contrasena": "5678"},
-    {"id_usuario": 8,  "nombre": "Andrés Patiño",   "rol": "Encargado de Inventario", "id_sede": 1, "usuario_acceso": "inv1",   "contrasena": "5678"},
-    {"id_usuario": 9,  "nombre": "Paola Vélez",     "rol": "Encargado de Inventario", "id_sede": 2, "usuario_acceso": "inv2",   "contrasena": "5678"},
-    {"id_usuario": 10, "nombre": "Camila Torres",   "rol": "Encargado de Inventario", "id_sede": 3, "usuario_acceso": "inv3",   "contrasena": "5678"},
+    {"id_usuario": 4,  "nombre": "Daniela Ospina",  "rol": "Jefe de Producción",      "id_sede": 1, "usuario_acceso": "jprod1", "contrasena": "5678"},
+    {"id_usuario": 5,  "nombre": "Ricardo Salazar", "rol": "Jefe de Producción",      "id_sede": 2, "usuario_acceso": "jprod2", "contrasena": "5678"},
+    {"id_usuario": 6,  "nombre": "Andrés Patiño",   "rol": "Encargado de Inventario", "id_sede": 1, "usuario_acceso": "inv1",   "contrasena": "5678"},
+    {"id_usuario": 7,  "nombre": "Paola Vélez",     "rol": "Encargado de Inventario", "id_sede": 2, "usuario_acceso": "inv2",   "contrasena": "5678"},
 ]
 
 insumos = [
@@ -35,13 +31,7 @@ insumos = [
     {"id_insumo": 10, "nombre": "Hilo seda crema",       "categoria": "hilo",   "unidad_medida": "kilos",    "cantidad":  18, "stock_minimo":  10, "alertas_stock": 0, "id_sede": 2, "id_usuario_responsable": 9},
     {"id_insumo": 11, "nombre": "Botón nácar redondo",   "categoria": "botón",  "unidad_medida": "unidades", "cantidad": 750, "stock_minimo": 300, "alertas_stock": 0, "id_sede": 2, "id_usuario_responsable": 9},
     {"id_insumo": 12, "nombre": "Cierre invisible 25cm", "categoria": "cierre", "unidad_medida": "unidades", "cantidad": 160, "stock_minimo":  80, "alertas_stock": 0, "id_sede": 2, "id_usuario_responsable": 9},
-    {"id_insumo": 13, "nombre": "Elástico 2cm",          "categoria": "otro",   "unidad_medida": "metros",   "cantidad": 130, "stock_minimo":  50, "alertas_stock": 0, "id_sede": 2, "id_usuario_responsable": 9},
-    {"id_insumo": 14, "nombre": "Tela polar gris",        "categoria": "tela",   "unidad_medida": "metros",   "cantidad": 400, "stock_minimo": 120, "alertas_stock": 0, "id_sede": 3, "id_usuario_responsable": 10},
-    {"id_insumo": 15, "nombre": "Tela franela a cuadros", "categoria": "tela",   "unidad_medida": "metros",   "cantidad": 175, "stock_minimo":  80, "alertas_stock": 0, "id_sede": 3, "id_usuario_responsable": 10},
-    {"id_insumo": 16, "nombre": "Hilo gris oscuro",       "categoria": "hilo",   "unidad_medida": "kilos",    "cantidad":  30, "stock_minimo":  20, "alertas_stock": 0, "id_sede": 3, "id_usuario_responsable": 10},
-    {"id_insumo": 17, "nombre": "Botón metálico dorado",  "categoria": "botón",  "unidad_medida": "unidades", "cantidad": 620, "stock_minimo": 200, "alertas_stock": 0, "id_sede": 3, "id_usuario_responsable": 10},
-    {"id_insumo": 18, "nombre": "Cierre plástico 15cm",   "categoria": "cierre", "unidad_medida": "unidades", "cantidad": 410, "stock_minimo": 150, "alertas_stock": 0, "id_sede": 3, "id_usuario_responsable": 10},
-    {"id_insumo": 19, "nombre": "Cinta reflectiva",       "categoria": "otro",   "unidad_medida": "metros",   "cantidad":  25, "stock_minimo":  30, "alertas_stock": 1, "id_sede": 3, "id_usuario_responsable": 10},
+    {"id_insumo": 13, "nombre": "Elástico 2cm",          "categoria": "otro",   "unidad_medida": "metros",   "cantidad": 130, "stock_minimo":  50, "alertas_stock": 0, "id_sede": 2, "id_usuario_responsable": 9}
 ]
 
 movimientos = [
@@ -72,21 +62,7 @@ movimientos = [
     {"id_movimiento": 25, "tipo": "Salida",  "id_insumo": 11, "cantidad":  250, "id_usuario":  9, "motivo": "Uso en orden",                   "id_sede": 2},
     {"id_movimiento": 26, "tipo": "Entrada", "id_insumo":  8, "cantidad":   30, "id_usuario":  3, "motivo": "Compra proveedor Sedas del Valle","id_sede": 2},
     {"id_movimiento": 27, "tipo": "Salida",  "id_insumo": 13, "cantidad":   20, "id_usuario":  9, "motivo": "Uso en orden",                   "id_sede": 2},
-    {"id_movimiento": 28, "tipo": "Entrada", "id_insumo": 14, "cantidad":  500, "id_usuario": 10, "motivo": "Registro inicial",               "id_sede": 3},
-    {"id_movimiento": 29, "tipo": "Entrada", "id_insumo": 15, "cantidad":  200, "id_usuario": 10, "motivo": "Registro inicial",               "id_sede": 3},
-    {"id_movimiento": 30, "tipo": "Entrada", "id_insumo": 16, "cantidad":   40, "id_usuario": 10, "motivo": "Registro inicial",               "id_sede": 3},
-    {"id_movimiento": 31, "tipo": "Entrada", "id_insumo": 17, "cantidad":  700, "id_usuario": 10, "motivo": "Registro inicial",               "id_sede": 3},
-    {"id_movimiento": 32, "tipo": "Entrada", "id_insumo": 18, "cantidad":  500, "id_usuario": 10, "motivo": "Registro inicial",               "id_sede": 3},
-    {"id_movimiento": 33, "tipo": "Entrada", "id_insumo": 19, "cantidad":   40, "id_usuario": 10, "motivo": "Registro inicial",               "id_sede": 3},
-    {"id_movimiento": 34, "tipo": "Salida",  "id_insumo": 14, "cantidad":   60, "id_usuario": 10, "motivo": "Uso en orden",                   "id_sede": 3},
-    {"id_movimiento": 35, "tipo": "Salida",  "id_insumo": 16, "cantidad":    5, "id_usuario": 10, "motivo": "Uso en orden",                   "id_sede": 3},
-    {"id_movimiento": 36, "tipo": "Salida",  "id_insumo": 17, "cantidad":   80, "id_usuario": 10, "motivo": "Uso en orden",                   "id_sede": 3},
-    {"id_movimiento": 37, "tipo": "Salida",  "id_insumo": 18, "cantidad":   90, "id_usuario": 10, "motivo": "Uso en orden",                   "id_sede": 3},
-    {"id_movimiento": 38, "tipo": "Salida",  "id_insumo": 15, "cantidad":   25, "id_usuario": 10, "motivo": "Uso en orden",                   "id_sede": 3},
-    {"id_movimiento": 39, "tipo": "Salida",  "id_insumo": 19, "cantidad":   15, "id_usuario": 10, "motivo": "Uso en orden",                   "id_sede": 3},
-    {"id_movimiento": 40, "tipo": "Entrada", "id_insumo": 14, "cantidad":   60, "id_usuario":  4, "motivo": "Compra proveedor PolyTex",        "id_sede": 3},
 ]
-
 ordenes = [
     {"id_orden":  1, "cliente": "Marca Urbana S.A.",      "prenda": "Camiseta algodón básica",      "cantidad": 200, "fecha_entrega": "2025-02-28", "prioridad": "Normal",  "estado": "Terminada",  "id_sede": 1, "id_usuario_responsable": 5},
     {"id_orden":  2, "cliente": "Comercial Ropa Jeans",   "prenda": "Jean clásico slim fit",        "cantidad":  80, "fecha_entrega": "2025-03-20", "prioridad": "Normal",  "estado": "Terminada",  "id_sede": 1, "id_usuario_responsable": 5},
@@ -97,12 +73,7 @@ ordenes = [
     {"id_orden":  7, "cliente": "Diseños Valentina",      "prenda": "Vestido lino playa",           "cantidad":  35, "fecha_entrega": "2025-03-30", "prioridad": "Normal",  "estado": "Terminada",  "id_sede": 2, "id_usuario_responsable": 6},
     {"id_orden":  8, "cliente": "Novias del Valle",       "prenda": "Traje de noche seda",          "cantidad":  15, "fecha_entrega": "2025-04-25", "prioridad": "Urgente", "estado": "En proceso", "id_sede": 2, "id_usuario_responsable": 6},
     {"id_orden":  9, "cliente": "Corporativo Textil SA",  "prenda": "Camisa ejecutiva lino",        "cantidad": 100, "fecha_entrega": "2025-05-05", "prioridad": "Normal",  "estado": "Pendiente",  "id_sede": 2, "id_usuario_responsable": 6},
-    {"id_orden": 10, "cliente": "Tienda Primavera",       "prenda": "Vestido casual lino",          "cantidad":  50, "fecha_entrega": "2025-05-15", "prioridad": "Normal",  "estado": "Pendiente",  "id_sede": 2, "id_usuario_responsable": 6},
-    {"id_orden": 11, "cliente": "Deportivos Norte Ltda.", "prenda": "Chaqueta polar deportiva",     "cantidad": 150, "fecha_entrega": "2025-03-05", "prioridad": "Normal",  "estado": "Terminada",  "id_sede": 3, "id_usuario_responsable": 7},
-    {"id_orden": 12, "cliente": "Uniformes Colombia",     "prenda": "Camisa franela institucional", "cantidad": 200, "fecha_entrega": "2025-04-10", "prioridad": "Urgente", "estado": "Terminada",  "id_sede": 3, "id_usuario_responsable": 7},
-    {"id_orden": 13, "cliente": "WorkWear SAS",           "prenda": "Overol franela seguridad",     "cantidad":  75, "fecha_entrega": "2025-04-30", "prioridad": "Normal",  "estado": "En proceso", "id_sede": 3, "id_usuario_responsable": 7},
-    {"id_orden": 14, "cliente": "Escuelas Medellín",      "prenda": "Chaqueta escolar polar",       "cantidad": 350, "fecha_entrega": "2025-05-20", "prioridad": "Urgente", "estado": "En proceso", "id_sede": 3, "id_usuario_responsable": 7},
-    {"id_orden": 15, "cliente": "Camping Total Ltda.",    "prenda": "Chaleco reflectivo polar",     "cantidad":  90, "fecha_entrega": "2025-05-30", "prioridad": "Normal",  "estado": "Pendiente",  "id_sede": 3, "id_usuario_responsable": 7},
+    {"id_orden": 10, "cliente": "Tienda Primavera",       "prenda": "Vestido casual lino",          "cantidad":  50, "fecha_entrega": "2025-05-15", "prioridad": "Normal",  "estado": "Pendiente",  "id_sede": 2, "id_usuario_responsable": 6}
 ]
 
 _next_id = {"insumo": 20, "movimiento": 41, "orden": 16}
@@ -467,13 +438,10 @@ def main():
     print("  dueno  / 1234  → Dueño       (todas las sedes)")
     print("  admin1 / 1234  → Admin        Sede Laureles")
     print("  admin2 / 1234  → Admin        Sede Envigado")
-    print("  admin3 / 1234  → Admin        Sede Itagüí")
     print("  jprod1 / 5678  → Jefe Prod.   Sede Laureles")
     print("  jprod2 / 5678  → Jefe Prod.   Sede Envigado")
-    print("  jprod3 / 5678  → Jefe Prod.   Sede Itagüí")
     print("  inv1   / 5678  → Inventario   Sede Laureles")
     print("  inv2   / 5678  → Inventario   Sede Envigado")
-    print("  inv3   / 5678  → Inventario   Sede Itagüí")
 
     while True:
         mostrar_menu()
